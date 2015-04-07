@@ -10,6 +10,7 @@ group :production do
 end
 group :development do
 	gem 'sqlite3'
+	gem 'rails-erd'
 end
 
 # Use SCSS for stylesheets
