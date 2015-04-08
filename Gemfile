@@ -11,6 +11,7 @@ end
 group :development do
 	gem 'sqlite3'
 	gem 'rails-erd'
+  gem 'pry-rails'
 end
 
 # Use SCSS for stylesheets
