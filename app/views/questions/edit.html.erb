@@ -23,12 +23,10 @@
       </div>
       <div class="form-group">
         <%= q.submit 'Save', class: 'btn btn-success' %>
+        <!-- a delete button -->
+        <%= link_to 'Delete', @question, method: :delete, class:'btn' %>
       </div>
     <% end %>
 
-    <!--adding a delete button -->
-    <div class="del">
-      <%= link_to 'Delete', @question, method: :delete, class:'btn' %>
-    </div>
   </div>
 </div>
