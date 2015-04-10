@@ -45,3 +45,5 @@ end
 
   # Provides modules for user aunthetication
   gem 'devise'
+
+  gem 'figaro', '1.0'
