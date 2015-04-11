@@ -19,7 +19,7 @@ end
 
 # A unique post, only seed if it's not there
 Post.create!(
-  title:'A unique post', body:30.times{'This post is so unique. '}
+  title:'A unique post', body:'This post is so unique. '*30
   ) unless !!Post.find_by(title: 'A unique post')
 # Same deal for a unique comment
 Comment.create!(
