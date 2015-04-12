@@ -45,5 +45,9 @@ end
 
   # Provides modules for user aunthetication
   gem 'devise'
-
+  # Sets up environment configuration securely
   gem 'figaro', '1.0'
+  # Handles authorization and user policies
+  gem 'pundit'
+
+  
