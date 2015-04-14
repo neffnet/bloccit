@@ -26,6 +26,11 @@ require 'faker'
 end
 posts = Post.all
 
+# Create post summaries
+Post.all.each do |post|
+  Summary.create!(post:post,body:"This could be a short summary of the post")
+end
+
 # Create Comments
 100.times do
   Comment.create!(

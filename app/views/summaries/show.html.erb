@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<h2>Summary view</h2>
+
+<div class="row">
+  <div class="col-md-8">
+    <p><%= @summary.body %></p>
+  </div>
+  <div class="col-md-4">
+    <!-- Let users edit summaries if they could edit the original -->
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit this summary", edit_topic_post_summary_path(@topic,@post), class:'btn btn-success' %>
+  <% end %>
