@@ -49,5 +49,6 @@ end
   gem 'figaro', '1.0'
   # Handles authorization and user policies
   gem 'pundit'
-
+  # Redcarpet adds Markdown formatting
+  gem 'redcarpet'
   
