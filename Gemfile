@@ -51,4 +51,9 @@ end
   gem 'pundit'
   # Redcarpet adds Markdown formatting
   gem 'redcarpet'
-  
+  # Carrierwave for uploading/storing files
+  gem 'carrierwave'
+  # mini_magick for image manipulation
+  gem 'mini_magick'
+  # fog does something with Amazon AWS s3 cloud storage
+  gem 'fog'
