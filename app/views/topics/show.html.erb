@@ -20,8 +20,8 @@
           </small>
         </div>
       </div>
-      <%= will_paginate @posts %>
     <% end %>
+      <%= will_paginate @posts %>
   </div>
   <div class="col-md-4">
     <% if policy(Post.new).create? %>

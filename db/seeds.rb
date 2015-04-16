@@ -10,13 +10,13 @@ require 'faker'
   users = User.all
 
 # Create Topics
-  15.times do
-    Topic.create!(name:Faker::Lorem.sentence,description:Faker::Lorem.paragraph)
+  50.times do
+    Topic.create!(name:'Topic ' + Faker::Lorem.sentence,description:Faker::Lorem.paragraph)
   end
   topics = Topic.all
 
 # Create Posts
-50.times do 
+1000.times do 
   Post.create!(
     user: users.sample,
     title: Faker::Lorem.sentence,
