@@ -57,3 +57,5 @@ end
   gem 'mini_magick'
   # fog does something with Amazon AWS s3 cloud storage
   gem 'fog'
+  # easy pagination
+  gem 'will_paginate', '~>3.0.5'
