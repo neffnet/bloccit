@@ -27,9 +27,9 @@ end
 posts = Post.all
 
 # Create Comments
-100.times do
+50.times do
   Comment.create!(
-      # user: users.sample,
+      user: users.sample,
       post: posts.sample,
       body: Faker::Lorem.paragraph
     )
@@ -38,13 +38,14 @@ end
 # A unique post, only seed if it's not there
 Post.where(title:'A unique post').first_or_create(
   body:'This post is so unique! '*30,
-  user: users.sample)
+  user: users.sample,
+  topic: topics.sample)
 
 # Same deal for a unique comment
 Comment.create!(
   post: posts.sample,
   body: "This is a unique comment",
-  # user: users.sample
+  user: users.sample
   ) unless !!Comment.find_by(body:'This is a unique comment')
 
 #  Create an admin user

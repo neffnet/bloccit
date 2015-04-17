@@ -9,9 +9,14 @@
               <small><%= topic.description %></small>
           </div>
         </div>
+<<<<<<< HEAD
       <% end %>
     </div>
     <%= will_paginate @topics %>
+=======
+      <% end %><%= will_paginate @topics %>
+     </div>
+>>>>>>> comments-checkpoint
     <div class="col-md-4">
       <% if policy(Topic.new).create? %>
         <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>

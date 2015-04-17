@@ -1,0 +1,6 @@
+<div class="row comment">
+  <small><%= img_tag(comment.user.avatar.tiny.url,:style => 'float:left') if comment.user.avatar? %>
+    <em><%= comment.user %></em> said at <%= comment.created_at.to_s.humanize %>:</small>
+
+<p><%= markdown_to_html comment.body %></p>
+</div>
