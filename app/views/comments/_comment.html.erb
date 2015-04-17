@@ -1,5 +1,5 @@
 <div class="row comment">
-  <small><%= img_tag(comment.user.avatar.tiny.url,:style => 'float:left') if comment.user.avatar? %>
+  <small><%= image_tag(comment.user.avatar.tiny.url,:style => 'float:left') if comment.user.avatar? %>
     <em><%= comment.user.name %></em> said <%= time_ago_in_words(comment.created_at) %> ago:</small>
 
 <p><%= markdown_to_html comment.body %></p>
