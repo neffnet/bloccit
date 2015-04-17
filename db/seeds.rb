@@ -38,7 +38,7 @@ end
 # A unique post, only seed if it's not there
 Post.where(title:'A unique post').first_or_create(
   body:'This post is so unique! '*30,
-  user: users.sample
+  user: users.sample,
   topic: topics.sample)
 
 # Same deal for a unique comment
