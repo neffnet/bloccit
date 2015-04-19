@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
         flash[:notice] = "Comment added"
         redirect_to [@topic,@post]
       else
-        flash[:error] = "Sorry, there is an error"
+        flash[:error] = "Sorry, there is an error: " + @comment.errors.full_messages.first
         redirect_to [@topic,@post]
       end
     end
