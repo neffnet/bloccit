@@ -1,6 +1,14 @@
-<div class="row comment">
-  <small><%= image_tag(comment.user.avatar.tiny.url,:style => 'float:left') if comment.user.avatar? %>
-    <em><%= comment.user.name %></em> said <%= time_ago_in_words(comment.created_at) %> ago:</small>
-
-<p><%= markdown_to_html comment.body %></p>
+<div class="media">
+  <div class="media-left">
+    <%= image_tag(comment.user.avatar.small.url,class:'media-object') if comment.user.avatar? %>
+  </div>
+  <div class="media-body">
+    <small>
+      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+      <% if policy(comment).destroy? %>
+        | <%= link_to "Delete", [@topic,@post,comment], method: :delete %>
+      <% end %>
+    </small>
+    <p><%= comment.body %></p>
+  </div>
 </div>

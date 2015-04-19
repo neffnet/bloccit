@@ -48,6 +48,20 @@ class PostsController < ApplicationController
         render :edit
       end
     end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    authorize @post
+
+    if @post.destroy
+      flash[:notice] = "Post: \"#{@post.title}\" has been deleted!"
+      redirect_to @topic
+    else
+      flash[:error] = "Sorry, there was an error"
+      render :show
+    end
+  end
     
   private
 

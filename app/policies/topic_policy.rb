@@ -5,7 +5,6 @@ class TopicPolicy < ApplicationPolicy
 
   def create?
     user.present? && user.admin?
-  # why not just user.admin? ? is user.present? redundant here?
   end
 
   def update?
