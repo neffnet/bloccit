@@ -1,4 +1,4 @@
-<%= form_for [topic,post,comment],url:topic_post_comments_path(topic,post,comment) do |f| %>
+<%= form_for [post,comment],url:post_comments_path(post,comment) do |f| %>
 
     <%= f.label "Add a comment" %>
     <%= f.text_field :body,class:"form-control",placeholder:'Add a comment' %>
