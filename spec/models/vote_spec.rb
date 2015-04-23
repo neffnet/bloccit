@@ -1,20 +1,29 @@
 require 'rails_helper'
 
 describe Vote do
+  include TestFactories
 
   describe "validations" do
-
-  before do
-    @post = Post.create(title:'some title',body:'some content that is totally long enough to be a post body')
-  end
-
     describe "value validation" do
       it "only allows -1 or 1 as values" do
-        expect( @post.votes.create(value:2).valid? ).to eq( false )
-        expect( @post.votes.create(value:0).valid? ).to eq( false )
-        expect( @post.votes.create(value:'b').valid? ).to eq( false )
-        expect( @post.votes.create(value:-1).valid? ).to eq( true )
+        up_vote = Vote.new(value:1)
+        expect( up_vote.valid? ).to eq( true )
+        down_vote = Vote.new(value:-1)
+        expect( down_vote.valid? ).to eq( true )
+        letter_vote = Vote.new(value:'a')
+        expect( letter_vote.valid? ).to eq( false )
+        zero_vote = Vote.new(value:0)
+        expect( zero_vote.valid? ).to eq( false )
       end
+    end
+  end
+
+  describe 'after_save' do
+    it "calls `Post#update_rank` after save" do
+      post = associated_post
+      vote = Vote.new(value:1,post:post)
+      expect(post).to receive(:update_rank)
+      vote.save
     end
   end
 end
