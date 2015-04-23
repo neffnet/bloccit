@@ -2,6 +2,10 @@
   <div class="col-md-8">
     <%= render partial: 'votes/voter', locals: {post:@post} %>
     <h1><%= markdown_to_html @post.title %></h1>
+    <small>
+      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+        posted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
+    </small>
     <p><%= markdown_to_html @post.body %></p>
     <div class="comments">
       <% if @comments.any? %>
