@@ -26,14 +26,22 @@ class Post < ActiveRecord::Base
   def update_rank
     age_in_days = ( created_at - Time.new(1970,1,1) ) / (60*60*24)
     new_rank = points + age_in_days
-    # but if we want a lower rank for older posts, shouldn't it be:
-    # new_rank = points - age_in_days ???
+    # better:
+    # age_in_days = (Time.now - created_at)/(60*60*24)
+    # new_rank = points - age_in_days
 
     update_attribute(:rank,new_rank)
   end
 
   def create_vote
     user.votes.create(post:self,value:1)
+  end
+
+  def save_with_initial_vote
+    ActiveRecord::Base.transaction do
+      save
+      create_vote
+    end
   end
     
 end
