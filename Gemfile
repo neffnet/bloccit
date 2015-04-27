@@ -48,7 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # capybara supports testing by simulating real user interactions
-  gem 'capybara'
+  gem 'capybara', '~> 2.4.4'
 end
 
   # Provides modules for user aunthetication
