@@ -1,5 +1,8 @@
 module TestFactories
 
+  include Warden::Test::Helpers
+  Warden.test_mode!
+
   def associated_post(options={})
     post_options = {
       title: 'Post title',
@@ -16,6 +19,13 @@ module TestFactories
     user.skip_confirmation!
     user.save
     user
+  end
+
+  def comment_without_email(user, post)
+    comment = Comment.new(user: user, post: post, body:"this is a comment")
+    allow(comment).to receive(:send_favorite_emails)
+    comment.save!
+    comment
   end
   
 end
