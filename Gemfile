@@ -55,6 +55,11 @@ group :development, :test do
   gem 'capybara', '~> 2.4.4'
 end
 
+group :test do
+
+  # Factory Girl for object creation
+  gem 'factory_girl_rails', '~> 4.0'
+end
   # Provides modules for user aunthetication
   gem 'devise'
   # Sets up environment configuration securely
