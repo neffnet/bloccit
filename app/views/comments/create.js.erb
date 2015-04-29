@@ -1,5 +1,5 @@
 <% if @comment.valid? %>
-  $('.js-comments').prepend("<%= j render(@comment) %>");
+  $('.js-comments').append("<%= j render(@comment) %>");
   $('.new-comment').html("<%= j render partial: 'comments/form', locals: { post: @post, comment: @new_comment } %>");
 <% else %>
   $('.new-comment').html("<%= j render partial: 'comments/form', locals: {post: @post, comment: @comment } %>");  
