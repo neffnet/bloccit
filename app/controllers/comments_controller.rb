@@ -7,16 +7,22 @@ class CommentsController < ApplicationController
 
     def create
       @post = Post.find(params[:post_id])
+      @comments = @post.comments
       @comment = current_user.comments.build(comment_params)
       @comment.post = @post
-      topic = @post.topic
-        authorize @comment
+      @new_comment = Comment.new
+
+      authorize @comment
+
       if @comment.save
-        flash[:notice] = "Comment added"
-        redirect_to [topic,@post]
+        flash[:notice] = "Comment created"
       else
-        flash[:error] = "Sorry, there is an error: " + @comment.errors.full_messages.first
-        redirect_to [topic,@post]
+        flash[:error] = "Sorry, there was an error. Please try again."
+      end
+
+      respond_to do |format|
+        format.html
+        format.js
       end
     end
 

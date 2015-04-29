@@ -10,14 +10,16 @@
     <div class="comments">
       <% if @comments.any? %>
         <h3>Comments about this post:</h3>
-        <%= render partial: 'comments/comment', collection: @comments %>
+          <div class="js-comments">
+            <%= render partial: 'comments/comment', collection: @comments %>
+          </div>
       <% else %>
         <h3>No comments on this post yet</h3>
       <% end %>
     </div>
 
     <% if policy(Comment.new).new? %>
-      <div class="add-comment">
+      <div class="new-comment">
         <%= render './comments/form', {topic:@topic,post:@post,comment:Comment.new} %>
       </div>
     <% end %>

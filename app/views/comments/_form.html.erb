@@ -1,7 +1,7 @@
-<%= form_for [post,comment],url:post_comments_path(post,comment) do |f| %>
+<%= form_for [@post, @post.comments.build], remote: true do |f| %>
 
     <%= f.label "Add a comment" %>
-    <%= f.text_field :body,class:"form-control",placeholder:'Add a comment' %>
+    <%= f.text_field :body, class: "form-control", placeholder: 'Add a comment' %>
 
   <div class="form-group">
     <%= f.submit 'Save', class: 'btn btn-success' %>
