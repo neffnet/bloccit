@@ -15,6 +15,8 @@ group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
 end
+# use Puma server for better performance
+gem 'puma'
 # NewRelic performance monitoring
 gem 'newrelic_rpm'
 # Populate some fake data
